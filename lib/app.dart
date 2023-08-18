@@ -16,6 +16,7 @@ class BookApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) => GetMaterialApp(
         darkTheme: MyThemeData.darkTheme,
+        themeMode:ThemeMode.dark,
         debugShowCheckedModeBanner: false,
         initialRoute:route,
         onGenerateRoute: (settings) => AppRoutes.onGenerate(settings),
