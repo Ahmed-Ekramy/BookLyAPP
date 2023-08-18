@@ -1,5 +1,9 @@
+import 'package:bookly/features/splash/presentation/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../../../core/utils/app_images.dart';
+import '../../../home/presentation/pages/home_layout.dart';
 
 class SplashScreenBody extends StatefulWidget {
   const SplashScreenBody({Key? key}) : super(key: key);
@@ -17,12 +21,17 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
   void initState() {
     // TODO: implement initState
     super.initState();
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
-    slidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero)
-            .animate(animationController);
-    animationController.forward();
+    initSlidingAnimation();
+    navToHome();
+  }
+
+
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    animationController.dispose();
   }
 
   @override
@@ -35,20 +44,27 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(AppImages.logo),
         ),
-        AnimatedBuilder(
-          animation: slidingAnimation,
-          builder: (context, child) {
-            return SlideTransition(
-              position: slidingAnimation,
-              child: Text(
-                "Read Free Books",
-                style: Theme.of(context).textTheme.bodySmall,
-                textAlign: TextAlign.center,
-              ),
-            );
-          },
-        )
+        SlidingText(slidingAnimation: slidingAnimation),
       ],
+    );
+  }
+
+  void initSlidingAnimation() {
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero)
+            .animate(animationController);
+    animationController.forward();
+  }
+  void navToHome() {
+    Future.delayed(
+      Duration(seconds: 2),
+          () {
+        Get.to(HomeLayout(),
+            transition: Transition.leftToRightWithFade,
+            duration: Duration(milliseconds: 250));
+      },
     );
   }
 }
