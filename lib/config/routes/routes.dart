@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import '../../core/utils/componants.dart';
+import '../../core/utils/components.dart';
 import '../../features/home/presentation/pages/home_layout.dart';
 import '../../features/splash/presentation/pages/splash_screen.dart';
 
