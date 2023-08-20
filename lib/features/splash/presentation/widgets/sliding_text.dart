@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class SlidingText extends StatelessWidget {
-   SlidingText({required this.slidingAnimation});
+   SlidingText({super.key, required this.slidingAnimation});
 
    Animation<Offset> slidingAnimation;
   @override

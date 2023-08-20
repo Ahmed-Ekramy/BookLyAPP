@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/components.dart';
 import '../../../../core/utils/text_style.dart';
 import 'best_seller_list_view.dart';
-import 'best_seller_listview_item.dart';
+import 'custom_app_barr_home.dart';
 import 'featured_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
