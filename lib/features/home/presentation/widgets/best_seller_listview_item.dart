@@ -56,7 +56,9 @@ class BestSellerListViewItem extends StatelessWidget {
                           style: Styles.textStyle,
                         ),
                         const Spacer(),
-                        const BestSellerRating()
+                         const BestSellerRating(
+                           MainAxisAlignment.spaceAround
+                         )
                       ],
                     ),
                   ],
@@ -71,16 +73,15 @@ class BestSellerListViewItem extends StatelessWidget {
 }
 
 class BestSellerRating extends StatelessWidget {
-  const BestSellerRating({
-    super.key,
-  });
 
+  const BestSellerRating(this.mainAxisAlignment, {super.key});
+final  MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: mainAxisAlignment,
       children: [
-        const Icon(
+         const Icon(
           Icons.star,
           color: Colors.amberAccent,
         ),
@@ -101,4 +102,5 @@ class BestSellerRating extends StatelessWidget {
       ],
     );
   }
+
 }

@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../config/routes/routes.dart';
 import '../../../../core/utils/app_images.dart';
 
 class CustomAppBarr extends StatelessWidget {
@@ -12,13 +12,18 @@ class CustomAppBarr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 40,bottom: 10),
+      padding: const EdgeInsets.only(top: 40, bottom: 10),
       child: Row(
         children: [
-          Image.asset(AppImages.logo,height: 18,),
+          Image.asset(
+            AppImages.logo,
+            height: 18,
+          ),
           const Spacer(),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.searchScreen);
+              },
               icon: const Icon(
                 FontAwesomeIcons.magnifyingGlass,
                 size: 18,

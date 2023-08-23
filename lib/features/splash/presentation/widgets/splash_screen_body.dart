@@ -1,4 +1,4 @@
-import 'package:bookly/features/splash/presentation/widgets/sliding_text.dart';
+import 'package:book/features/splash/presentation/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
 import '../../../../config/routes/routes.dart';
 import '../../../../core/utils/app_images.dart';

@@ -21,7 +21,7 @@ abstract class Styles {
   );
 
   static  TextStyle textStyle16 =  GoogleFonts.poppins(
-      fontSize: 16.sp, fontWeight: FontWeight.w400, color: Colors.white);
+      fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.white);
 }
 
 const TextStyle textStyle = TextStyle();
