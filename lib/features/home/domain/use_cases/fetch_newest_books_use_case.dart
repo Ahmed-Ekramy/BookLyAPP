@@ -1,6 +1,6 @@
+import 'package:book/features/home/domain/entities/book_entity.dart';
 import 'package:dartz/dartz.dart';
 import '../../../../core/error/failures.dart';
-import '../entities/home_entity.dart';
 import '../repositories/home_domain_repo.dart';
 
 class FetchNewestBooksUseCase {
@@ -8,7 +8,7 @@ class FetchNewestBooksUseCase {
 
   FetchNewestBooksUseCase(this.homeDomainRepo);
 
-  Future<Either<Failures, List<HomeEntity>>> call() {
+  Future<Either<Failures, List<BookEntity>>> call() {
     return homeDomainRepo.fetchNewestBooks();
   }
 }
