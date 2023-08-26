@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 class AppBarrDetails extends StatelessWidget {
   const AppBarrDetails({
     super.key,
@@ -13,7 +11,7 @@ class AppBarrDetails extends StatelessWidget {
         IconButton(
             onPressed: () {},
             icon: const Icon(
-              FontAwesomeIcons.close,
+           Icons.close,
               size: 18,
               color: Colors.white,
             )),
@@ -21,7 +19,7 @@ class AppBarrDetails extends StatelessWidget {
         IconButton(
             onPressed: () {},
             icon: const Icon(
-              FontAwesomeIcons.shoppingCart,
+             Icons.shopping_cart,
               size: 18,
               color: Colors.white,
             ))

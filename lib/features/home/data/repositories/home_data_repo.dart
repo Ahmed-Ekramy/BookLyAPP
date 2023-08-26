@@ -4,6 +4,7 @@ import 'package:book/features/home/data/data_sources/home_remote_dto.dart';
 import 'package:book/features/home/domain/entities/book_entity.dart';
 import 'package:book/features/home/domain/repositories/home_domain_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeDataRepo extends HomeDomainRepo{
   final HomeRDto homeRDto;
@@ -21,9 +22,12 @@ class HomeDataRepo extends HomeDomainRepo{
       var books = await homeRDto.fetchFeatureBooks();
       return right(books);
     }catch(e){
-      return left(Failures());
+      if (e is DioException) {
+        return left(ServerFailure.fromDiorError(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
-  }
+    }
 
   @override
   Future<Either<Failures, List<BookEntity>>> fetchNewestBooks()async {
@@ -35,8 +39,10 @@ class HomeDataRepo extends HomeDomainRepo{
       var books = await homeRDto.fetchNewestBooks();
       return right(books);
     }catch(e){
-      return left(Failures());
+      if (e is DioException) {
+        return left(ServerFailure.fromDiorError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
     }
   }
-
-}

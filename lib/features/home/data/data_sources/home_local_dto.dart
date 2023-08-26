@@ -1,7 +1,6 @@
 import 'package:book/core/utils/constant.dart';
 import 'package:book/features/home/domain/entities/book_entity.dart';
 import 'package:hive_flutter/adapters.dart';
-import '../models/BookModel.dart';
 
 abstract class HomeLDto {
  List <BookEntity> fetchFeatureBooks();
